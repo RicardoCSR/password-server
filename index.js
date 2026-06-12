@@ -7,7 +7,7 @@ dotenv.config();
 
 const app  = express();
 const PORT = process.env.PORT || 3333;
-const SECRET = process.env.JWT_SECRET;
+const SECRET = process.env.PASSWORD_SERVER_JWT_SECRET;
 
 if (!SECRET) {
   console.error("❌  JWT_SECRET não definido no .env");
@@ -28,7 +28,7 @@ function requireJWT(req, res, next) {
   try {
     const payload = jwt.verify(token, SECRET, {
       algorithms: ["HS256"],
-      issuer:     "nox-platform",
+      issuer:     "protec-app",
       audience:   "password-server",
     });
     req.jwtPayload = payload;
