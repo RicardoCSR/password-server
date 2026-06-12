@@ -3,3 +3,6 @@ builder = "NIXPACKS"
 
 [deploy]
 startCommand = "node index.js"
+
+[[services]]
+internalPort = 3333
